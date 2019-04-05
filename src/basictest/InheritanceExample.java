@@ -73,6 +73,11 @@ class Base
 		return new Base();
 	}
 	
+	protected void overrideWithScope()
+	{
+		
+	}
+	
 }
 
 class Derived extends Base
@@ -106,6 +111,15 @@ class Derived extends Base
 	@Override
 	public Derived getNewClassInstance() {
 		return new Derived();
+	}
+	
+	
+	// We should not decrease the visibility of method in Derived class
+	// But we can increase it
+	@Override
+	public void overrideWithScope() {
+		// TODO Auto-generated method stub
+		super.overrideWithScope();
 	}
 	
 }
