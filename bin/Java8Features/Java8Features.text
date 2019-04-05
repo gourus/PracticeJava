@@ -1,0 +1,12 @@
+Lambda Expressions:
+
+	To add functional programming advantages
+	Nothing but an anonymous function.
+	Which contains, No name, No return type and No Access specifier
+	We can use only with FunctionalInterface.
+	
+	
+Functional Interface:
+	An interface with only one Abstarct method can be called as functional interface.
+	Interface can have any number of Default and static methods
+	
