@@ -16,6 +16,18 @@ package Java8Features;
  * NOTE: We can't add object class methods as default methods, because super class of any class in Object.
  *  
  * 
+ * Static Methods:
+ * 
+ * 	If we have a requirement to use only static methods in class, we need to write a class and use it. Creating 
+ *  Creating class is very costly. Instead of that we can have interface with static methods.
+ *  
+ *  Advantages:
+ *  	
+ *  	No need to implement the interface with static methods
+ *  	We can access with interface name.
+ *  
+ *  NOTE: We can create a main method in interface, as static methods are allowed from java 8.
+ * 
  */
 
 
@@ -35,6 +47,31 @@ interface j
 	}	
 }
 
+// Interface with static method
+interface s
+{
+	static void m2()
+	{
+		System.out.println("static Method m2 in interface s... ");
+	}
+}
+
+// We have default method, we need to implement it
+// And static method in this interface can't access with object
+interface n
+{
+	static void m2()
+	{
+		System.out.println("static Method m2 in interface s... ");
+	}
+	
+	default void m3()
+	{
+		System.out.println("m3() method from interface n");
+	}
+}
+
+
 // First extend and next implement
 class ImplementsInterfaceI  extends Object implements i
 {
@@ -48,7 +85,7 @@ class ImplementsInterfaceJ implements j
 }
 
 // Here we should override default method m1()
-public class InterfaceNewFeatures implements i,j{
+public class InterfaceNewFeatures implements i,j,n{
 
 	@Override
 	public void m1() {
@@ -62,13 +99,20 @@ public class InterfaceNewFeatures implements i,j{
 		InterfaceNewFeatures inf = new InterfaceNewFeatures();
 		
 		inf.m1();
-		
+		// If we have default with static method in interface, we have to implement it.
+		inf.m3();
+		//inf.m2(); // We can't access static method of interface with object reference.
 		
 		ImplementsInterfaceI ii = new ImplementsInterfaceI();
 		ii.m1();
 		
 		ImplementsInterfaceJ ij = new ImplementsInterfaceJ();
 		ij.m1();
+		
+		// We can directly access m2() from class and no need to implement as well.
+		s.m2();
+		
+		
 		
 	}
 
