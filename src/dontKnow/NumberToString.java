@@ -44,6 +44,15 @@ public class NumberToString {
 			{
 				ii = Integer.parseInt(""+number.charAt(number.length()-2)+number.charAt(number.length()-1));
 			}
+			
+			// Handling some cases
+			// Instead of this, trim all leading zeros
+			if(number.equals("0"))
+			{
+				printStringHelper("",prefix);
+			}
+			
+			
 			if(i != 0 )
 			{
 				printStringHelper(number.substring(0,number.length()-1),alphabets.charAt(i-1) +prefix);
@@ -79,7 +88,7 @@ public class NumberToString {
 //		ns.printString("100"); // throws runtime exception
 //		ns.printString("1232");
 //		ns.printString("123210");
-		ns.printString("01");
+		ns.printString("027");
 		
 	}
 	
