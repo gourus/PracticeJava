@@ -18,6 +18,8 @@ public class InheritanceExample {
 
 		d.method1();
 		d.method2();
+		d.overrideStaticMethod();
+		d.overrideStaticMethodBase();
 		
 		System.out.println("Derived : "+ d.getI());
 
@@ -30,6 +32,8 @@ public class InheritanceExample {
 		
 		bd.method1();
 		System.out.println("Base Derived : "+ bd.getI());
+		
+		
 		
 		//bd.method2(); // No acces for method 2
 		
@@ -78,6 +82,17 @@ class Base
 		
 	}
 	
+	public static void overrideStaticMethod()
+	{
+		System.out.println("Base Static Method... ");
+	}
+	
+	public static void overrideStaticMethodBase()
+	{
+		//Base.overrideStaticMethod();
+		System.out.println("Only Base Static Method...");
+	}
+	
 }
 
 class Derived extends Base
@@ -119,7 +134,15 @@ class Derived extends Base
 	@Override
 	public void overrideWithScope() {
 		// TODO Auto-generated method stub
-		super.overrideWithScope();
+		//super.overrideWithScope();
 	}
+	
+	public static void overrideStaticMethod()
+	{
+		//Base.overrideStaticMethod();
+		System.out.println("Derived Static Method...");
+	}
+	
+	
 	
 }

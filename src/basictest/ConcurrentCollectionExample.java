@@ -21,6 +21,8 @@ public class ConcurrentCollectionExample {
 
 		CopyOnWriteArrayList<Integer> cal = new CopyOnWriteArrayList<Integer>();
 		
+		
+		
 	}
 
 }
