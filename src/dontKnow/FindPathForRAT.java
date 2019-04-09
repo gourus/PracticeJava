@@ -38,7 +38,6 @@ public class FindPathForRAT {
 	}
 
 	private static boolean solutionHelper(int[][] a, int x, int y, int[][] sol) {
-
 		
 		if(x==N-1 && y == N-1)
 		{
