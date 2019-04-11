@@ -38,8 +38,12 @@ public class NumberToString {
 		}
 		else
 		{
-			Integer i =Integer.parseInt(number.charAt(number.length()-1)+"");
 			Integer ii = -1;
+
+			// Converting last character of string to number 
+			Integer i =Integer.parseInt(number.charAt(number.length()-1)+"");
+			
+			// Converting last two characters of string to number
 			if(number.length() >= 2)
 			{
 				ii = Integer.parseInt(""+number.charAt(number.length()-2)+number.charAt(number.length()-1));
@@ -52,26 +56,32 @@ public class NumberToString {
 				printStringHelper("",prefix);
 			}
 			
-			
+			// If we take only one digit
 			if(i != 0 )
 			{
-				printStringHelper(number.substring(0,number.length()-1),alphabets.charAt(i-1) +prefix);
+				printStringHelper(
+						number.substring(0,number.length()-1), 
+						alphabets.charAt(i-1) + prefix 
+						);
 			}
 			
+			// This if is to handing some base case like, not to allow 2 consecutive zeros in number
 			if(ii == 0)
 			{
 				System.out.println("Not posible..");
 				throw new RuntimeException("Not possible to create a string");
 			}
 			
+			// Take 2 digits if possible to form a new string
 			else if(( i == 0 && ii != -1) || 
 					(ii != -1 && ii <= 26 )
 					)
 			{
-				printStringHelper(number.substring(0,number.length()-2),alphabets.charAt(ii-1) +prefix);
-			}
-					
-			
+				printStringHelper(
+						number.substring(0,number.length()-2),
+						alphabets.charAt(ii-1) + prefix
+						);
+			}		
 			
 		}
 		
