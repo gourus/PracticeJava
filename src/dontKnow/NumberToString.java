@@ -46,7 +46,7 @@ public class NumberToString {
 			}
 			
 			// Handling some cases
-			// Instead of this, trim all leading zeros
+			// Instead of this, trim all zeros at starting
 			if(number.equals("0"))
 			{
 				printStringHelper("",prefix);
