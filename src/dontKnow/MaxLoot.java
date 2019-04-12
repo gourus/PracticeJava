@@ -46,6 +46,8 @@ public class MaxLoot {
 		
 		int dp[] = new int[size];
 		
+		// Instead of DP array we can solve this solution with two variable.
+		// Because we will use only 2 variables at a time.
 		
 		dp[0] = a[0];
 		dp[1] = Math.max(a[0], a[1]);

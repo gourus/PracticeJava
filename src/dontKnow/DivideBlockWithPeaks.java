@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 
 /*
- * 
- *  1 2 3 4 5 6 7 8
+ * Question:
+ * 	
+ * 		Divide array into equal sized subsets and each subset should contain at least one peak.
+ * 		Find max number of subsets ?
+ * 			
  *  
- *  4 blocks and Block Size is 2
- *  
- *  
- * 
- * 
  */
 
 
@@ -25,6 +23,7 @@ public class DivideBlockWithPeaks {
 		
 		ArrayList<Integer> peaks = new ArrayList<Integer>();
 		
+		// Calculate the peaks
 		for(int i=1; i< aSize-1; i++)
 		{
 			if(a[i-1] < a[i] && a[i] > a[i+1])
@@ -33,6 +32,11 @@ public class DivideBlockWithPeaks {
 			}
 		}
 		
+		// We can get the number of subsets as equal to number of peaks or less 
+		// So run the loop  for number of peaks.
+		
+		// Calculate the block size with respect to peak size, and check each block consists at least one peak.
+		// If any block without peak, then ignore them and continue loop by reducing the peak size.
 		for(int i = peaks.size(); i>0; i--)
 		{
 			int blockSize = aSize / i;

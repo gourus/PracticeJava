@@ -41,12 +41,17 @@ public class NumberToString {
 			Integer ii = -1;
 
 			// Converting last character of string to number 
-			Integer i =Integer.parseInt(number.charAt(number.length()-1)+"");
+			Integer i =Integer.parseInt(
+					String.valueOf(number.charAt(number.length()-1) )
+					);
 			
 			// Converting last two characters of string to number
 			if(number.length() >= 2)
 			{
-				ii = Integer.parseInt(""+number.charAt(number.length()-2)+number.charAt(number.length()-1));
+				ii = Integer.parseInt(	
+						String.valueOf(number.charAt(number.length()-2))
+						.concat(String.valueOf(number.charAt(number.length()-1)))
+						);
 			}
 			
 			// Handling some cases
@@ -55,7 +60,7 @@ public class NumberToString {
 			{
 				printStringHelper("",prefix);
 			}
-			
+						
 			// If we take only one digit
 			if(i != 0 )
 			{
@@ -92,13 +97,14 @@ public class NumberToString {
 	{
 		NumberToString ns = new NumberToString();
 		
-//		ns.printString("123");
+		ns.printString("123");
+//		ns.printString("123123123123");
 //		ns.printString("314");
 //		ns.printString("12321");
 //		ns.printString("100"); // throws runtime exception
 //		ns.printString("1232");
 //		ns.printString("123210");
-		ns.printString("027");
+//		ns.printString("027");
 		
 	}
 	
