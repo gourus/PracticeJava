@@ -1,5 +1,6 @@
 package Java8Features;
 
+import customclassloader.TestClass;
 
 /*
  * Default methods are introduced in Java 8
@@ -84,9 +85,35 @@ class ImplementsInterfaceJ implements j
 	// No need to override M1 if we want to use Default method
 }
 
-// Here we should override default method m1()
-public class InterfaceNewFeatures implements i,j,n{
+abstract class JavaEightTest
+{
+	protected void abstractMethod()
+	{
+		System.out.println("Abstract method");
+	}
+	
+}
 
+interface ItestWithAbstract
+{
+	 default void abstractMethod()
+	{
+		System.out.println("interface method");
+	}
+}
+
+// Here we should override default method m1()
+public class InterfaceNewFeatures extends JavaEightTest implements i,j,n,ItestWithAbstract{
+
+	@Override
+	public void abstractMethod() {
+		// Takes abstract method
+		super.abstractMethod();
+		// now interface method will be called
+		ItestWithAbstract.super.abstractMethod();
+	}
+	
+	
 	@Override
 	public void m1() {
 		System.out.println("m1 method from class InterfaceNewFeatures ");
@@ -112,7 +139,11 @@ public class InterfaceNewFeatures implements i,j,n{
 		// We can directly access m2() from class and no need to implement as well.
 		s.m2();
 		
+		ItestWithAbstract itestWithAbstract = new InterfaceNewFeatures();
+		itestWithAbstract.abstractMethod();
 		
+		JavaEightTest javaEightTest = new InterfaceNewFeatures();
+		javaEightTest.abstractMethod();
 		
 	}
 
