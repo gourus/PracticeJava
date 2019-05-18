@@ -65,5 +65,9 @@ public class StaticMethodVariableTest {
 		return n;
 	}
 	
+	public static void set()
+	{
+		//i++; //error: Cannot make a static reference to the non-static field i
+	}
 
 }

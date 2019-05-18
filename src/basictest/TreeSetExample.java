@@ -47,11 +47,11 @@ public class TreeSetExample {
 }
 
 // Using comparator
-class VasuComparator implements Comparator
+class VasuComparator implements Comparator<Srinu> // We can add generic objects here
 {
 	
 	@Override
-	public int compare(Object o1, Object o2) {
+	public int compare(Srinu o1, Srinu o2) {
 		Srinu s1 = (Srinu) o1;
 		Srinu s2 = (Srinu) o2;
 		
