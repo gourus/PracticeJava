@@ -1,9 +1,9 @@
 package dontKnow.maxheapgeneric;
 
 
-public class MaxHeapGeneric<E> {
+public class MaxHeapGeneric<E extends Comparable<E>> {
 
-	private Object [] heap;
+	private E [] heap;
 	private int size;
 	private int maxSize; 
 	
@@ -19,7 +19,7 @@ public class MaxHeapGeneric<E> {
 		return maxSize;
 	}
 
-	public void setHeap(Object[] heap) {
+	public void setHeap(E[] heap) {
 		this.heap = heap;
 	}
 
@@ -33,14 +33,14 @@ public class MaxHeapGeneric<E> {
 
 	public MaxHeapGeneric(int size)
 	{
-		this.heap = new Object[size+1];
+		this.heap = (E[]) new Comparable[size+1];
 		this.maxSize = size;
 		this.size = 0;
 	}
 	
 	private void swap(int i, int j)
 	{
-		Object temp = heap[i];
+		E temp = heap[i];
 		heap[i] = heap[j];
 		heap[j] = temp;
 		
@@ -50,6 +50,7 @@ public class MaxHeapGeneric<E> {
 	{
 		return (i-1)/2;
 	}
+	
 	
 	private int left(int i)
 	{
@@ -66,7 +67,7 @@ public class MaxHeapGeneric<E> {
 	// If it is greater, then swap and do the same until current == root
 	// NOTE: For MAX_HEAP
 	
-	public void insert(Object value)
+	public void insert(E value)
 	{
 		
 		if(size == maxSize)
@@ -74,17 +75,17 @@ public class MaxHeapGeneric<E> {
 			throw new RuntimeException("Heap is full...");
 		}
 
-		Comparable<? super E> key;
+		//Comparable<? super E> key;
 		
 		heap[size] = value;
 		
 		int current = size;
 		
-		while(current != 0 )
+		while(current > 0 )
 		{
-			key = (Comparable<? super E>)heap[current];
+			//key = (Comparable<? super E>)heap[current];
 
-			if( key.compareTo((E) heap[parent(current)]) > 0)
+			if( heap[current].compareTo( heap[parent(current)]) > 0)
 			{
 				swap(current , parent(current));
 				current = parent(current);
@@ -105,20 +106,20 @@ public class MaxHeapGeneric<E> {
 	{
 		int l = left(i);
 		int r = right(i);
-		Comparable<? super E> key;
+		//Comparable<? super E> key;
 		
 		int largest = i;
 		
-		key = (Comparable<? super E>)heap[largest];
+		//key = (Comparable<? super E>)heap[largest];
 		
-		if( l < size  && key.compareTo((E) heap[l]) < 0 )
+		if( l < size  && heap[largest].compareTo( heap[l]) < 0 )
 		{	
 			largest = l;
 		}
 
-		key = (Comparable<? super E>)heap[largest];
+		//key = (Comparable<? super E>)heap[largest];
 		
-		if(r < size && key.compareTo((E) heap[r]) < 0)
+		if(r < size && heap[largest].compareTo((E) heap[r]) < 0)
 		{
 			
 			largest = r;
@@ -134,9 +135,9 @@ public class MaxHeapGeneric<E> {
 	
 	// Extract max value from heap
 	// assign last value to root value and heapify root
-	public Object extractMax()
+	public E extractMax()
 	{
-		Object res = heap[0];
+		E res = heap[0];
 		
 		heap[0] = heap[size-1];
 		size--;
