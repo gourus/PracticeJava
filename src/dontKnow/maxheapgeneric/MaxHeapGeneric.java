@@ -33,7 +33,7 @@ public class MaxHeapGeneric<E> {
 
 	public MaxHeapGeneric(int size)
 	{
-		this.heap = new Object[size];
+		this.heap = new Object[size+1];
 		this.maxSize = size;
 		this.size = 0;
 	}
@@ -71,7 +71,7 @@ public class MaxHeapGeneric<E> {
 		
 		if(size == maxSize)
 		{
-			new RuntimeException("Heap is full...");
+			throw new RuntimeException("Heap is full...");
 		}
 
 		Comparable<? super E> key;
@@ -172,6 +172,7 @@ public class MaxHeapGeneric<E> {
 		keyMaxHeap.insert(new Key('a', 3));
 		keyMaxHeap.insert(new Key('b',1));
 		keyMaxHeap.insert(new Key('c',1));
+		
 		
 		for(int i=0; i<3; i++ )
 		{
