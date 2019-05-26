@@ -17,3 +17,5 @@ bin/Java8Features/n.class
 bin/Java8Features/s.class
 *.class
 *.class
+*.text
+*.class
