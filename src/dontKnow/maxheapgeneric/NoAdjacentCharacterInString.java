@@ -81,7 +81,7 @@ public class NoAdjacentCharacterInString {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("input String (aa) : "+modifyStrAlgo("aa"));
+		//System.out.println("input String (aa) : "+modifyStrAlgo("aa"));
 		System.out.println("input String (aaabc) : "+modifyStrAlgo("aaabc"));
 		System.out.println("input String (abcd) : "+modifyStrAlgo("abcd"));
 		System.out.println("input String (aaabbbbbb) : "+modifyStrAlgo("aaaabbbbbb"));

@@ -112,6 +112,11 @@ class Derived extends Base
 
 	}
 	
+	public void method1()
+	{
+		System.out.println("Derived class method... : "+ i);
+	}
+	
 	public void method2()
 	{
 		System.out.println("Derived class method... : "+i);
